@@ -1,0 +1,62 @@
+<html>
+    <head>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src= "https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.19/fabric.min.js"> </script>
+        <link rel = "stylesheet" href= "css/accordion.css"></style>
+    </head>                
+    <body>
+        <div style="width: 100%; overflow: hidden;">
+            <div style="width: 600px; float: left;">
+                <canvas id="canvas" width="600" height="800" style="border:1px solid #be2929;">
+                    Your browser does not support  the HTML5
+                </canvas>
+            </div>
+            <div style="margin-left: 620px;"> 
+                    <button class="accordion">Text</button>
+                    <div class="panel">
+                        <br>
+                        Text : <input type="text" name="fname" id = "TextArea"/>
+                        <br>
+                        <br>
+                        <p><button onclick="AddText()">Add text</button></p>
+                    </div>
+                    
+                    <button class="accordion">Picture</button>
+                    <div class="panel">
+                        <br>
+                        Upload Picture: <input type="file" id = "file" accept="image/*" >
+                        <br>
+                        <br>
+                    </div>
+                    
+                    <button class="accordion">Shapes</button>
+                    <div class="panel">
+                        
+                    </div>
+                <br>
+                <br>
+                <button onclick="sendToBack()">Send to Back</button></p>
+                <button onclick="bringForward()">Bring forward</button></p>
+                <button onclick="del()">Delete</button></p>
+            </div>
+        </div>
+        <script src= "js/global.js"> </script> 
+        <script>
+                var acc = document.getElementsByClassName("accordion");
+                var i;
+                
+                for (i = 0; i < acc.length; i++) {
+                    acc[i].onclick = function(){
+                        this.classList.toggle("active");
+                        var panel = this.nextElementSibling;
+                        if (panel.style.display === "block") {
+                            panel.style.display = "none";
+                        } else {
+                            panel.style.display = "block";
+                        }
+                    }
+                }
+                </script>
+    </body>
+</html>
