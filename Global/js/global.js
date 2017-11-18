@@ -1,42 +1,45 @@
-var canvas =  new fabric.Canvas('canvas', {
-    preserveObjectStacking: true,
-});
-canvas.setBackgroundImage('../Tshirt/media/front.png',canvas.renderAll.bind(canvas));
-canvas.renderAll();
+var canvas = FabricCanvas.getCanvas();
 
 function del()
-{
-    canvas.remove(canvas.getActiveObject());
+{   
+    FabricCanvas.deleteObjects();
 }
 
 function AddText()
 {    
     var text = document.getElementById("TextArea");
-    console.log(text.value);
-    var canvasTxt = new fabric.IText(text.value, { 
-        fontFamily: 'arial black',
-        left: 100,
-        top: 100,
-        objecttype: 'text'
-      });
-    canvas.add(canvasTxt);
+    FabricCanvas.addText(text.value);
+    
+}
+function underline()
+{
+    FabricCanvas.underLine();
+}
+function bold()
+{
+    FabricCanvas.bold();
+}
+function italics()
+{
+    FabricCanvas.italics();
 }
 
 function sendToBack()
 {
-    var obj = canvas.getActiveObject();
-    canvas.sendToBack(obj);
+    FabricCanvas.sendToBack();
 }
-
 function bringForward()
+{   
+    FabricCanvas.bringToFront();
+}
+function flip()
 {
-    var obj = canvas.getActiveObject();
-    canvas.bringToFront(obj);
+    FabricCanvas.flip();
 }
 
 document.getElementById('file').onchange = function handleImage(e) {
     var reader = new FileReader();
-    reader.onload = function (event) { console.log('fdsf');
+    reader.onload = function (event) { 
         var imgObj = new Image();
         imgObj.src = event.target.result;
         imgObj.onload = function () {            
@@ -48,8 +51,36 @@ document.getElementById('file').onchange = function handleImage(e) {
                 padding: 0,
                 cornersize: 0
             });
+            var aspectRatio = image.height/image.width;
+            var newHeight =  aspectRatio * 200;
+            image.set({
+                width: 200,
+                height: newHeight
+            });
             canvas.add(image);
         }        
     }
     reader.readAsDataURL(e.target.files[0]);
+}
+document.getElementById('textColor').onchange = function handleColorPicker(e) {
+    FabricCanvas.editColor(e.target.value);
+}
+document.onkeydown = function(e)
+{
+     
+    switch(e.keyCode)
+    {
+        case 46: FabricCanvas.deleteObjects();
+            break;
+        case 37:            
+            FabricCanvas.moveAround("left");
+            break; 
+        case 38: FabricCanvas.moveAround("up");
+            break; 
+        case 39: FabricCanvas.moveAround("right");
+            break; 
+        case 40: FabricCanvas.moveAround("down");
+            break; 
+
+    }
 }

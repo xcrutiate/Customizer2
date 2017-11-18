@@ -17,9 +17,18 @@
                     <div class="panel">
                         <br>
                         Text : <input type="text" name="fname" id = "TextArea"/>
+                        <input type="color" id = "textColor" value="#ff0000" style = "background:url(media/colorPicker.png) no-repeat"/>
                         <br>
                         <br>
                         <p><button onclick="AddText()">Add text</button></p>
+                        <div>
+                            <button onclick = "bold()">Bold</button>
+                            <button onclick = "italics()">Italics</button>
+                            <button onclick = "underline()">Underline</button>
+                        </div>
+                        <br/>
+                        <br/>
+
                     </div>
                     
                     <button class="accordion">Picture</button>
@@ -28,20 +37,23 @@
                         Upload Picture: <input type="file" id = "file" accept="image/*" >
                         <br>
                         <br>
-                    </div>
-                    
+                    </div>                    
                     <button class="accordion">Shapes</button>
-                    <div class="panel">
-                        
+                    <div class="panel">                        
                     </div>
                 <br>
                 <br>
                 <button onclick="sendToBack()">Send to Back</button></p>
                 <button onclick="bringForward()">Bring forward</button></p>
                 <button onclick="del()">Delete</button></p>
+                <button onclick="flip()">Flip</button>
             </div>
         </div>
-        <script src= "js/global.js"> </script> 
+        <script src= "js/FabricCanvas.js"> </script>
+        <script src= "js/global.js"> </script>
+        <script src= "js/SquareDraq.js"></script>
+        
+        
         <script>
                 var acc = document.getElementsByClassName("accordion");
                 var i;
