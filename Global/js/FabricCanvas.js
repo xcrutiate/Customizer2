@@ -68,14 +68,16 @@ var FabricCanvas = (function () {
                 canvas.bringToFront(obj);
             }
         },
-        addText: function (txt, fontFamily, x,y, color)
+        addText: function (txt, fontFamily, x,y, color, fontSize)
         {            
-            var canvasTxt = new fabric.IText(txt, { 
-                fontFamily: 'times new roman',
-                left: 100,
-                top: 100,
-                objecttype: 'text'
+            var canvasTxt = new fabric.Textbox(txt, { 
+                fontFamily: fontFamily,
+                left: x,
+                top: y,
+                objecttype: 'text',
+                fontSize: fontSize
               });
+            canvasTxt.setColor(color);
             canvas.add(canvasTxt);
             return canvasTxt;
         },
@@ -125,6 +127,21 @@ var FabricCanvas = (function () {
             else
             {
                 txt.setTextDecoration('underline');
+            }
+            
+            canvas.renderAll();
+        },
+        strikeThrough: function()
+        {
+            
+            var txt = canvas.getActiveObject();
+            if(txt['textDecoration']==='line-through')
+            {
+                txt.setTextDecoration('');
+            }
+            else
+            {
+                txt.setTextDecoration("line-through");
             }
             
             canvas.renderAll();
@@ -219,7 +236,52 @@ var FabricCanvas = (function () {
                 canvas.setBackgroundImage('../Tshirt/media/back.png',canvas.renderAll.bind(canvas));
                 canvas.renderAll();
             }            
-        }
+        },
+        drawShape: function(shape, color)
+        {
+            var shapeToBeDrawn;
+            switch(shape)
+            {
+                case "rectangle":
+                    shapeToBeDrawn = new fabric.Rect({
+                        left: 100,
+                        top: 100,
+                        fill: '',
+                        width: 50,
+                        height: 50,
+                        fill: color,
+                        strokeWidth: 3,
+                    });
+                    break;
+                case "ellipse":
+                    shapeToBeDrawn = new fabric.Ellipse({
+                        left: 100,
+                        top: 100,
+                        fill: '',
+                        rx: 50,
+                        ry: 25,
+                        fill: color,
+                        strokeWidth: 3,
+                    });
+                    break;
+                case "circle":
+                shapeToBeDrawn = new fabric.Circle({
+                    left: 100,
+                    top: 100,
+                    fill: '',
+                    radius: 50,
+                    fill: color,
+                    strokeWidth: 3,
+                });
+                break;
+                case "triangle":
+                shapeToBeDrawn =  new fabric.Triangle({
+                    width: 20, height: 30, fill: '', left: 100, top: 100,fill: color
+                  });
+                break;
+            }
+            canvas.add(shapeToBeDrawn);
+        },
        
     };
 })();

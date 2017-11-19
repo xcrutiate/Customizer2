@@ -1,4 +1,6 @@
 var canvas = FabricCanvas.getCanvas();
+var panning = false;
+var panningOn = false;
 
 function del()
 {   
@@ -8,12 +10,20 @@ function del()
 function AddText()
 {    
     var text = document.getElementById("TextArea");
-    FabricCanvas.addText(text.value);
+    var color = document.getElementById("textColor");
+    var fontFamily = document.getElementById("fontFamily");
+    var fontSize = document.getElementById("fontSize");
+    
+    FabricCanvas.addText(text.value,fontFamily.value,100,100,color.value, fontSize.value);
     
 }
 function underline()
 {
     FabricCanvas.underLine();
+}
+function strikeThrough()
+{
+    FabricCanvas.strikeThrough();
 }
 function bold()
 {
@@ -36,7 +46,25 @@ function flip()
 {
     FabricCanvas.flip();
 }
-
+function editFontFamily()
+{
+    FabricCanvas.editFontFamily(fontFamily.value);
+}
+function togglePanMode()
+{
+    panningOn = !panningOn;
+}
+function colorChange()
+{
+    var textColor = document.getElementById('textColor');
+    FabricCanvas.editColor(e.target.value);
+}
+function drawShape()
+{
+    var shape = document.getElementById('shape');
+    var color = document.getElementById('shapeColor');
+    FabricCanvas.drawShape(shape.value,color.value);
+}
 document.getElementById('file').onchange = function handleImage(e) {
     var reader = new FileReader();
     reader.onload = function (event) { 
@@ -62,9 +90,7 @@ document.getElementById('file').onchange = function handleImage(e) {
     }
     reader.readAsDataURL(e.target.files[0]);
 }
-document.getElementById('textColor').onchange = function handleColorPicker(e) {
-    FabricCanvas.editColor(e.target.value);
-}
+
 document.onkeydown = function(e)
 {
      
@@ -84,3 +110,32 @@ document.onkeydown = function(e)
 
     }
 }
+$(function(){
+    $('#zoomIn').click(function(){
+        canvas.setZoom(canvas.getZoom() * 1.1 ) ;
+    }) ;
+
+    $('#zoomOut').click(function(){
+        canvas.setZoom(canvas.getZoom() / 1.1 ) ;
+    }) ;
+});
+
+//Canvas Event Handlers
+canvas.on('mouse:up', function (e) {
+    panning = false;
+});
+canvas.on('mouse:down', function (e) {
+    panning = true;
+});
+canvas.on('mouse:move', function (e) {
+    if (panning && e && e.e && panningOn) {
+        var units = 10;
+        var delta = new fabric.Point(e.e.movementX, e.e.movementY);
+        canvas.relativePan(delta);
+        canvas.selection = false;
+    }
+    if(!panningOn)
+    {
+        canvas.selection = true;
+    }
+});

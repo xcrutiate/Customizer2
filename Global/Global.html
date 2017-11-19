@@ -8,16 +8,19 @@
     <body>
         <div style="width: 100%; overflow: hidden;">
             <div style="width: 600px; float: left;">
-                <canvas id="canvas" width="600" height="800" style="border:1px solid #be2929;">
+                <canvas id="canvas" width="600" height="600" style="border:1px solid #be2929;">
                     Your browser does not support  the HTML5
                 </canvas>
+                <button id="zoomIn">+</button>
+                <button id="zoomOut">-</button>
+                <button id="panMode" onclick="togglePanMode()">Panning Mode</button>
             </div>
             <div style="margin-left: 620px;"> 
                     <button class="accordion">Text</button>
                     <div class="panel">
                         <br>
                         Text : <input type="text" name="fname" id = "TextArea"/>
-                        <input type="color" id = "textColor" value="#ff0000" style = "background:url(media/colorPicker.png) no-repeat"/>
+                        <input type="color" id = "textColor" value="#ff0000" style = "background:url(media/colorPicker.png) no-repeat" onchange="colorChange()"/>
                         <br>
                         <br>
                         <p><button onclick="AddText()">Add text</button></p>
@@ -25,10 +28,21 @@
                             <button onclick = "bold()">Bold</button>
                             <button onclick = "italics()">Italics</button>
                             <button onclick = "underline()">Underline</button>
+                            <button onclick = "strikeThrough()">Strikethrough</button>
                         </div>
+                        <br/>
+                        Font Size : <input type="text" name="fontSize" id = "fontSize" value="60"/>
                         <br/>
                         <br/>
 
+                        <select id = "fontFamily" onchange="editFontFamily()">
+                            <option value="times new roman">Times New Roman</option>
+                            <option value="arial black">Arial Black</option>
+                            <option value="calibri">Calibri</option>
+                            <option value=""></option>
+                          </select>
+                        <br/>
+                        <br/>
                     </div>
                     
                     <button class="accordion">Picture</button>
@@ -39,7 +53,16 @@
                         <br>
                     </div>                    
                     <button class="accordion">Shapes</button>
-                    <div class="panel">                        
+                    <div class="panel">       
+                        <br/>
+                        <select id="shape">
+                            <option value="rectangle">Rectangle</option>
+                            <option value="circle">Circle</option>
+                            <option value="triangle">Triangle</option>
+                            <option value="ellipse">Ellipse</option>
+                        </select>  
+                        <button onclick="drawShape()">Draw Shape</button>
+                        <input type="color" id="shapeColor" value="#ff0000"/>
                     </div>
                 <br>
                 <br>
@@ -51,9 +74,6 @@
         </div>
         <script src= "js/FabricCanvas.js"> </script>
         <script src= "js/global.js"> </script>
-        <script src= "js/SquareDraq.js"></script>
-        
-        
         <script>
                 var acc = document.getElementsByClassName("accordion");
                 var i;
