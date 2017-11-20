@@ -13,7 +13,7 @@
                 </canvas>
                 <button id="zoomIn">+</button>
                 <button id="zoomOut">-</button>
-                <button id="panMode" onclick="togglePanMode()">Panning Mode</button>
+                <input type="checkbox" id="panMode" onchange="togglePanMode()">Panning Mode</button>
             </div>
             <div style="margin-left: 620px;"> 
                     <button class="accordion">Text</button>
@@ -69,7 +69,7 @@
                 <button onclick="sendToBack()">Send to Back</button></p>
                 <button onclick="bringForward()">Bring forward</button></p>
                 <button onclick="del()">Delete</button></p>
-                <button onclick="flip()">Flip</button>
+                <input type="checkbox" onchange="flip()">Flip</button>
             </div>
         </div>
         <script src= "js/FabricCanvas.js"> </script>
