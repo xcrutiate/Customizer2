@@ -7,6 +7,15 @@ function del()
     FabricCanvas.deleteObjects();
 }
 
+function changeCanvasMode()
+{
+    FabricCanvas.changeCanvasMode(document.getElementById('mode').value);
+}
+function changeFontSize()
+{
+    FabricCanvas.changeFontSize(document.getElementById('fontSize').value);
+}
+
 function AddText()
 {    
     var text = document.getElementById("TextArea");
@@ -57,7 +66,7 @@ function togglePanMode()
 function colorChange()
 {
     var textColor = document.getElementById('textColor');
-    FabricCanvas.editColor(e.target.value);
+    FabricCanvas.editColor(textColor.value);
 }
 function drawShape()
 {

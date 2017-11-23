@@ -1,12 +1,14 @@
 var FabricCanvas = (function () {
     var canvas;
     var canvasState;
+    var front = '../Tshirt/media/front.png';
+    var back = '../Tshirt/media/back.png';
  
     function createInstance() {
         var canvas =  new fabric.Canvas('canvas', {
             preserveObjectStacking: true,
         });
-        canvas.setBackgroundImage('../Tshirt/media/front.png',canvas.renderAll.bind(canvas));
+        canvas.setBackgroundImage(front,canvas.renderAll.bind(canvas));
         canvas.renderAll();
         return canvas;
     }
@@ -17,6 +19,35 @@ var FabricCanvas = (function () {
                 canvas = createInstance();
             }
             return canvas;
+        },
+        changeCanvasMode: function(mode)
+        {
+            var imgPath = '';
+            canvas.clear();
+            switch(mode)
+            {
+                case "1":
+                imgPath = '../Tshirt/media/front.png';
+                front = imgPath;
+                back = '../Tshirt/media/back.png';
+                break;
+                case "2":
+                imgPath = '../BusinessCard/media/card_front.png';
+                front = imgPath;
+                back = '../BusinessCard/media/card_back.png';
+                break;
+                case "3":
+                imgPath = '../PaperBag/media/front.png';
+                front = imgPath;
+                back = '../PaperBag/media/back.png';
+                break;
+                case "4":
+                imgPath = '../Mug/media/coffeemug1.png';
+                back = '';
+                break;
+            }
+            canvas.setBackgroundImage(imgPath,canvas.renderAll.bind(canvas));
+            canvas.renderAll();
         },
         deleteObjects: function ()
         {
@@ -80,6 +111,15 @@ var FabricCanvas = (function () {
             canvasTxt.setColor(color);
             canvas.add(canvasTxt);
             return canvasTxt;
+        },
+        changeFontSize: function(size)
+        {
+            var txt = canvas.getActiveObject();            
+            if(txt)
+            {
+                txt.fontSize = size;
+            }
+            canvas.renderAll();
         },
         editText: function(text)
         {
@@ -233,7 +273,7 @@ var FabricCanvas = (function () {
             {               
                 canvasState = canvas.toJSON();                
                 canvas.clear();
-                canvas.setBackgroundImage('../Tshirt/media/back.png',canvas.renderAll.bind(canvas));
+                canvas.setBackgroundImage(back,canvas.renderAll.bind(canvas));
                 canvas.renderAll();
             }            
         },

@@ -1,6 +1,5 @@
 <html>
-    <head>
-        
+    <head>        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src= "https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.19/fabric.min.js"> </script>
         <link rel = "stylesheet" href= "css/accordion.css"></style>
@@ -16,6 +15,12 @@
                 <input type="checkbox" id="panMode" onchange="togglePanMode()">Panning Mode</button>
             </div>
             <div style="margin-left: 620px;"> 
+                    <select id= "mode" onchange="changeCanvasMode()">
+                        <option value = "1">T-Shirt</option>
+                        <option value = "2">Visiting Card</option>
+                        <option value = "3">Paper Bag</option>
+                        <option value = "4">Mug</option>
+                    </select>
                     <button class="accordion">Text</button>
                     <div class="panel">
                         <br>
@@ -31,7 +36,7 @@
                             <button onclick = "strikeThrough()">Strikethrough</button>
                         </div>
                         <br/>
-                        Font Size : <input type="text" name="fontSize" id = "fontSize" value="60"/>
+                        Font Size : <input type="text" name="fontSize" id = "fontSize" value="60" onchange="changeFontSize()"/>
                         <br/>
                         <br/>
 
