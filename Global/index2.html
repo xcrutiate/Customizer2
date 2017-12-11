@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <script src="js/style.js"></script>
+        <link rel="stylesheet" href="css/my.css" type="text/css"/> 
+        <!-- bootstrap-css -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <!-- //bootstrap-css -->
+        <!-- Custom CSS -->
+        <link href="css/style.css" rel='stylesheet' type='text/css' />
+        <!-- font CSS -->
+        <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+        <!-- font-awesome icons -->
+        <link rel="stylesheet" href="css/font.css" type="text/css"/>
+        <link href="css/font-awesome.css" rel="stylesheet"> 
+        <!-- //font-awesome icons -->
+        <script src="js/jquery2.0.3.min.js"></script>
+        <script src="js/modernizr.js"></script>
+        <script src="js/jquery.cookie.js"></script>
+        <script src="js/screenfull.js"></script>
+        <!-- charts -->
+        <script src="js/raphael-min.js"></script>
+        <script src="js/morris.js"></script>
+        <link rel="stylesheet" href="css/morris.css">
+        <!-- //charts -->
+        <!--skycons-icons-->
+        <script src="js/skycons.js"></script>
+        <!--//skycons-icons-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src= "https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.19/fabric.min.js"> </script>
+        
+    </head>
+    <body>
+        <div id="mySidenav1" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div style="font-size: 30px; text-align: center;margin:0px;">
+                    Text
+                </div>
+                <div href="#" >
+                    Text:
+                    <input type="text" name="fname" id = "TextArea" class="sidenavinput"/>                                        
+                </div>
+                <div>                        
+                    Font Size : <input type="text" name="fontSize" id = "fontSize" value="60" onchange="changeFontSize()" class= "sidenavinput"/>
+                </div>
+                <div>
+                    <button style="color:white"class="button" onclick="AddText()">Add text</button>  
+                    <input type="color" id = "textColor" value="#ff0000"  onchange="colorChange()" />
+                </div>
+                <div>
+                    <select  id = "fontFamily" onchange="editFontFamily()" class="sidenavinput">
+                            <option style="font-size: 16;" value="times new roman">Times New Roman</option>
+                            <option style="font-size: 16;" value="arial black">Arial Black</option>
+                            <option style="font-size: 16;" value="calibri">Calibri</option>
+                    </select>
+                </div>
+                <div>
+                    <a style="margin-left:10;" href="javascript:;"><i class="fa fa-bold nav_icon"></i></a>
+                    <a style="margin-left:10;" href="javascript:;"><i class="fa fa-italic nav_icon"></i></a>
+                    <a style="margin-left:10;" href="javascript:;"><i class="fa fa-underline nav_icon"></i></a> 
+                </div>                
+        </div>
+        <div id="mySidenav2" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div style="font-size: 30px; text-align: center;margin:0px;">
+                    Image
+                </div>
+                <a href="#" >Image</a>
+                <a href="#" >Nasir</a>
+                <a href="#" >ABCD</a>
+                <a href="#" >Contact</a>
+        </div>
+        <div id="mySidenav3" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#" >Shape</a>
+                <a href="#" >Nasir</a>
+                <a href="#" >ABCD</a>
+                <a href="#" >Contact</a>
+        </div>
+        <!--Static Menu-->
+        <div class="sidenav1">           
+            <a href="#" onclick="openNav()"> <!--Home-->
+                <i class="fa fa-home nav_icon"></i>
+            </a>
+            <a href="#" onclick="openNav(1)" style="padding: 8px;"> <!--Font-->
+                <i class="icon-font nav-icon" aria-hidden="true"></i>
+            </a>
+            <a href="#" onclick="openNav(2)"> <!--Image-->
+                <i class="fa fa-bar-chart nav_icon" ></i>
+            </a>
+            <a href="#" onclick="openNav(3)" style="padding: 8px;"> <!--Shape-->
+                <i class="fa fa-square nav-icon" aria-hidden="true"></i>
+            </a>
+            
+        </div>
+        
+            <!-- Use any element to open the sidenav -->
+        <span onclick="openNav()">open</span>
+        
+        <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+        <div id="main" >
+                <canvas id="customCanvas" width="600" height="600" style="border:1px solid #be2929;">
+                        Your browser does not support  the HTML5
+                </canvas>
+                <button id="zoomIn">+</button>
+                <button id="zoomOut">-</button>
+                <input type="checkbox" id="panMode" onchange="togglePanMode()">Panning Mode
+                <input type="checkbox" id='flip' onchange="flip()">Flip
+        </div>
+        
+        <script src= "js/FabricCanvas.js"> </script>
+        <script src= "js/global.js"> </script>
+    </body>
+</html>

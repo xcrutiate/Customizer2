@@ -7,15 +7,23 @@ function del()
     FabricCanvas.deleteObjects();
 }
 
-function changeCanvasMode()
+function changeCanvasMode(mode)
 {
-    FabricCanvas.changeCanvasMode(document.getElementById('mode').value);
+    if(!mode)
+    {
+        mode = document.getElementById('mode').value;
+    }
+    console.log(mode);
+    FabricCanvas.changeCanvasMode(mode);
 }
 function changeFontSize()
 {
     FabricCanvas.changeFontSize(document.getElementById('fontSize').value);
 }
-
+function exportTemplate()
+{
+    FabricCanvas.exportTemplate(document.getElementById('mode').value);
+}
 function AddText()
 {    
     var text = document.getElementById("TextArea");
@@ -53,7 +61,7 @@ function bringForward()
 }
 function flip()
 {
-    FabricCanvas.flip();
+    FabricCanvas.flip(document.getElementById('flip').checked);
 }
 function editFontFamily()
 {
@@ -67,6 +75,15 @@ function colorChange()
 {
     var textColor = document.getElementById('textColor');
     FabricCanvas.editColor(textColor.value);
+}
+function refreshPreview()
+{
+    var frontImg = document.getElementById('front');
+    var backImg = document.getElementById('back');
+    var a =  FabricCanvas.toImage();
+    console.log(a);
+    frontImg.src = a[0];
+    backImg.src = a[1];
 }
 function drawShape()
 {
@@ -127,6 +144,12 @@ $(function(){
     $('#zoomOut').click(function(){
         canvas.setZoom(canvas.getZoom() / 1.1 ) ;
     }) ;
+    $('#mode').change(function()
+    {
+        
+    });
+     
+    
 });
 
 //Canvas Event Handlers

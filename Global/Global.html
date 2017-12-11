@@ -2,17 +2,18 @@
     <head>        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src= "https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.19/fabric.min.js"> </script>
-        <link rel = "stylesheet" href= "css/accordion.css"></style>
+        <link rel = "stylesheet" href= "css/accordion.css">
+        <link rel = "stylesheet" href= "css/style.css">
     </head>                
     <body>
         <div style="width: 100%; overflow: hidden;">
             <div style="width: 600px; float: left;">
-                <canvas id="canvas" width="600" height="600" style="border:1px solid #be2929;">
+                <canvas id="customCanvas" width="600" height="600" style="border:1px solid #be2929;">
                     Your browser does not support  the HTML5
                 </canvas>
                 <button id="zoomIn">+</button>
                 <button id="zoomOut">-</button>
-                <input type="checkbox" id="panMode" onchange="togglePanMode()">Panning Mode</button>
+                <input type="checkbox" id="panMode" onchange="togglePanMode()">Panning Mode
             </div>
             <div style="margin-left: 620px;"> 
                     <select id= "mode" onchange="changeCanvasMode()">
@@ -20,11 +21,14 @@
                         <option value = "2">Visiting Card</option>
                         <option value = "3">Paper Bag</option>
                         <option value = "4">Mug</option>
+                        <option value = "5">Wedding card one page</option>
+                        <option value = "6">Wedding card two pages</option>
+                        <option value = "7">Envelope</option>
                     </select>
                     <button class="accordion">Text</button>
                     <div class="panel">
                         <br>
-                        Text : <input type="text" name="fname" id = "TextArea"/>
+                        Text : <input type="text" name="fname" id = "TextArea" class"sidenavinput"/>
                         <input type="color" id = "textColor" value="#ff0000" style = "background:url(media/colorPicker.png) no-repeat" onchange="colorChange()"/>
                         <br>
                         <br>
@@ -74,7 +78,17 @@
                 <button onclick="sendToBack()">Send to Back</button></p>
                 <button onclick="bringForward()">Bring forward</button></p>
                 <button onclick="del()">Delete</button></p>
-                <input type="checkbox" onchange="flip()">Flip</button>
+                <input type="checkbox" id='flip' onchange="flip()">Flip
+            </div>
+                <div>
+                    <button onclick='exportTemplate()'>Export template</button>
+                    <button onclick='refreshPreview()' >Refresh Preview</button>
+                    
+                </div>
+                <div>
+                    <img height="100px" width="100px" id='front' src="" alt="Front">
+                    <img height="100px" width="100px" id='back' src="" alt="Back">
+            </div>
             </div>
         </div>
         <script src= "js/FabricCanvas.js"> </script>

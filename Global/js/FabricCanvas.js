@@ -3,9 +3,11 @@ var FabricCanvas = (function () {
     var canvasState;
     var front = '../Tshirt/media/front.png';
     var back = '../Tshirt/media/back.png';
+    var imgArray = new Array();
+    var isFlipped;
  
     function createInstance() {
-        var canvas =  new fabric.Canvas('canvas', {
+        var canvas =  new fabric.Canvas('customCanvas', {
             preserveObjectStacking: true,
         });
         canvas.setBackgroundImage(front,canvas.renderAll.bind(canvas));
@@ -20,32 +22,63 @@ var FabricCanvas = (function () {
             }
             return canvas;
         },
+        exportTemplate: function(mode)
+        {
+            var frontPath = mode + "front.txt";
+            var backPath = mode + "back.txt";
+            var frontString , backString;
+
+            frontString = isFlipped? JSON.stringify(canvasState): JSON.stringify(canvas.toJSON());
+            backString =  !isFlipped? JSON.stringify(canvasState): JSON.stringify(canvas.toJSON());
+
+            var a = document.createElement("a");
+            var file = new Blob([frontString], {type: 'text/plain'});
+            a.href = URL.createObjectURL(file);
+            a.download = frontPath;
+            a.click();
+
+            file = new Blob([backString], {type: 'text/plain'});
+            a.href = URL.createObjectURL(file);
+            a.download = backPath;
+            a.click();           
+        },
         changeCanvasMode: function(mode)
         {
             var imgPath = '';
             canvas.clear();
+            canvasState = null;
             switch(mode)
             {
                 case "1":
-                imgPath = '../Tshirt/media/front.png';
-                front = imgPath;
+                front = '../Tshirt/media/front.png';
                 back = '../Tshirt/media/back.png';
                 break;
                 case "2":
-                imgPath = '../BusinessCard/media/card_front.png';
-                front = imgPath;
+                front = '../BusinessCard/media/card_front.png';
                 back = '../BusinessCard/media/card_back.png';
                 break;
                 case "3":
-                imgPath = '../PaperBag/media/front.png';
-                front = imgPath;
+                front = '../PaperBag/media/front.png';
                 back = '../PaperBag/media/back.png';
                 break;
                 case "4":
-                imgPath = '../Mug/media/coffeemug1.png';
+                front = '../Mug/media/coffeemug1.png';
                 back = '';
                 break;
+                case "5":
+                front = '../WeddingCard/media/wcard_front.png';
+                back = '../WeddingCard/media/wcard_back.png';
+                break;
+                case "6":
+                front = '../WeddingCard/media/wcard2_front.png';
+                back = '../WeddingCard/media/wcard2_back.png';
+                break;
+                case "7":
+                front = '../Envelope/media/front.png';
+                back = '../Envelope/media/back.png';
+                break;
             }
+            imgPath = isFlipped? back:front;
             canvas.setBackgroundImage(imgPath,canvas.renderAll.bind(canvas));
             canvas.renderAll();
         },
@@ -121,9 +154,24 @@ var FabricCanvas = (function () {
             }
             canvas.renderAll();
         },
+        toImage: function()
+        {
+            var frontImg, backImg;
+            console.log(canvas.getZoom());
+            if(isFlipped)
+            {
+                imgArray[1] = canvas.toDataURL({format: 'png', multiplier: 2});   
+            }
+            else
+            {
+                imgArray[0] = canvas.toDataURL({format: 'png', multiplier: 2}); 
+            }
+            return imgArray;
+        },
         editText: function(text)
         {
-            var txt = canvas.getActiveObject();            
+            var txt = canvas.getActiveObject(); 
+
             if(text)
             {
                 txt.setText(text);
@@ -259,9 +307,10 @@ var FabricCanvas = (function () {
             }
             canvas.renderAll();
         },
-        flip: function()
+        flip: function(flipped)
         {
             var flip;
+            isFlipped = flipped;
             if(canvasState)
             {                
                 flip = canvasState;
@@ -270,11 +319,11 @@ var FabricCanvas = (function () {
                 canvas.loadFromJSON(flip, canvas.renderAll.bind(canvas));
             }
             else
-            {               
+            {       
                 canvasState = canvas.toJSON();                
                 canvas.clear();
-                canvas.setBackgroundImage(back,canvas.renderAll.bind(canvas));
-                canvas.renderAll();
+                canvas.setBackgroundImage(flipped?back:front,canvas.renderAll.bind(canvas));
+                canvas.renderAll();                
             }            
         },
         drawShape: function(shape, color)
