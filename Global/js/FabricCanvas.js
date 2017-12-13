@@ -7,10 +7,34 @@ var FabricCanvas = (function () {
     var isFlipped;
  
     function createInstance() {
+
+        var w = window,
+        d = document,
+        e = d.documentElement,
+        g = d.getElementsByTagName('')[0],
+        x = 500,
+        y = 650;
+        
         var canvas =  new fabric.Canvas('customCanvas', {
             preserveObjectStacking: true,
         });
+        
+
+        var sizeX = 500, sizeY = 530;
+        var cx,cy;                  //The size of the canvas-Element
+        var cleft=0;                //Offset to the left border (to center the canvas-element, if there are borders on the left&right)
+        if(x/y > sizeX/sizeY){      //x-diff > y-diff   ==> black borders left&right
+            console.log("hello");
+            cx = (y*sizeX/sizeY);
+            cy = y;
+            cleft = (x-cx)/2;
+        }else{                      //y-diff > x-diff   ==> black borders top&bottom
+            cx = x;
+            cy = (x*sizeY/sizeX);
+        }
+        
         canvas.setBackgroundImage(front,canvas.renderAll.bind(canvas));
+        canvas.setDimensions({width:cx, height:cy});        
         canvas.renderAll();
         return canvas;
     }
@@ -27,7 +51,7 @@ var FabricCanvas = (function () {
             var frontPath = mode + "front.txt";
             var backPath = mode + "back.txt";
             var frontString , backString;
-
+            
             frontString = isFlipped? JSON.stringify(canvasState): JSON.stringify(canvas.toJSON());
             backString =  !isFlipped? JSON.stringify(canvasState): JSON.stringify(canvas.toJSON());
 
@@ -40,7 +64,7 @@ var FabricCanvas = (function () {
             file = new Blob([backString], {type: 'text/plain'});
             a.href = URL.createObjectURL(file);
             a.download = backPath;
-            a.click();           
+            a.click();            
         },
         changeCanvasMode: function(mode)
         {

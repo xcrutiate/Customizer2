@@ -11,6 +11,7 @@
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
     margin-left: 50px;
+    color: #818181;
 }
 .sidenav1 {
     height: 100%; /* 100% Full-height */
@@ -89,4 +90,5 @@
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    color: rgb(255, 255, 255);
 }

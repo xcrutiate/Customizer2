@@ -30,6 +30,19 @@
         
     </head>
     <body>
+        <div id="mySidenav0" class = "sidenav">
+            <div>
+                <select id= "mode" onchange="changeCanvasMode()" class="sidenavinput">
+                    <option value = "1">T-Shirt</option>
+                    <option value = "2">Visiting Card</option>
+                    <option value = "3">Paper Bag</option>
+                    <option value = "4">Mug</option>
+                    <option value = "5">Wedding card one page</option>
+                    <option value = "6">Wedding card two pages</option>
+                    <option value = "7">Envelope</option>
+                </select>
+            </div>
+        </div>
         <div id="mySidenav1" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div style="font-size: 30px; text-align: center;margin:0px;">
@@ -63,22 +76,36 @@
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div style="font-size: 30px; text-align: center;margin:0px;">
                     Image
+                </div>    
+                <div>
+                Upload Picture: 
                 </div>
-                <a href="#" >Image</a>
-                <a href="#" >Nasir</a>
-                <a href="#" >ABCD</a>
-                <a href="#" >Contact</a>
+                <br/>
+                <input type="file" id = "file" accept="image/*">
+                
         </div>
         <div id="mySidenav3" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="#" >Shape</a>
-                <a href="#" >Nasir</a>
-                <a href="#" >ABCD</a>
-                <a href="#" >Contact</a>
+                <div style="font-size: 30px; text-align: center;margin:0px;">
+                    Image
+                </div>
+                <div>
+                    <select id="shape" class="sidenavinput">
+                        <option value="rectangle">Rectangle</option>
+                        <option value="circle">Circle</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="ellipse">Ellipse</option>
+                    </select>  
+                </div>
+                <div>
+                    <button class="button" onclick="drawShape()">Draw Shape</button>
+                    <input type="color" id="shapeColor" value="#ff0000"/>
+                </div>
+                
         </div>
         <!--Static Menu-->
         <div class="sidenav1">           
-            <a href="#" onclick="openNav()"> <!--Home-->
+            <a href="#" onclick="openNav(0)"> <!--Home-->
                 <i class="fa fa-home nav_icon"></i>
             </a>
             <a href="#" onclick="openNav(1)" style="padding: 8px;"> <!--Font-->
@@ -98,7 +125,7 @@
         
         <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
         <div id="main" >
-                <canvas id="customCanvas" width="600" height="600" style="border:1px solid #be2929;">
+                <canvas id="customCanvas" width="500" height="530" style="border:1px solid #be2929;">
                         Your browser does not support  the HTML5
                 </canvas>
                 <button id="zoomIn">+</button>

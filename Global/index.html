@@ -1,281 +1,255 @@
-<!--A Design by W3layouts
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
+<html>
 <head>
-<title>Colored  an Admin Panel Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Colored Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- bootstrap-css -->
-<link rel="stylesheet" href="css/bootstrap.css">
-<!-- //bootstrap-css -->
-<!-- Custom CSS -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-<!-- font CSS -->
-<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-<!-- font-awesome icons -->
-<link rel="stylesheet" href="css/font.css" type="text/css"/>
-<link href="css/font-awesome.css" rel="stylesheet"> 
-<!-- //font-awesome icons -->
-<script src="js/jquery2.0.3.min.js"></script>
-<script src="js/modernizr.js"></script>
-<script src="js/jquery.cookie.js"></script>
-<script src="js/screenfull.js"></script>
-<script src= "https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.19/fabric.min.js"> </script>
-
-
-		<script>
-		$(function () {
-			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
-
-			if (!screenfull.enabled) {
-				return false;
-			}
-
-			
-
-			$('#toggle').click(function () {
-				screenfull.toggle($('#container')[0]);
-			});	
-		});
-		</script>
-<!-- charts -->
-<script src="js/raphael-min.js"></script>
-<script src="js/morris.js"></script>
-<link rel="stylesheet" href="css/morris.css">
-<!-- //charts -->
-<!--skycons-icons-->
-<script src="js/skycons.js"></script>
-<!--//skycons-icons-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src= "https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.19/fabric.min.js"> </script>
+        
+<link rel="stylesheet" href="css/myStyle.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
 </head>
-<body class="dashboard-page">
-	<script>
-	        var theme = $.cookie('protonTheme') || 'default';
-	        $('body').removeClass (function (index, css) {
-	            return (css.match (/\btheme-\S+/g) || []).join(' ');
-	        });
-	        if (theme !== 'default') $('body').addClass(theme);
-        </script>
-	<nav class="main-menu">
-		<ul>
-			<li class= "has-subnav">
-				<a href="javascript:;">
-					<i class="fa fa-home nav_icon"></i>
-					<span class="nav-text">
-					Mode
-                    </span>
-                    <i class="icon-angle-right"></i><i class="icon-angle-down"></i>
-                </a>                
-                <ul>                    
-                    <li>
-                        <a class="subnav-text" href="javascript:changeCanvasMode('1');">
-                        T-shirt
-                        </a>
-                    </li>
-                    <li>
-                        <a class="subnav-text" href="javascript:changeCanvasMode('2');">
-                        Visiting cards
-                        </a>
-                    </li>
-                    <li>
-                        <a class="subnav-text" href="javascript:changeCanvasMode('3');">
-                        Paper bag
-                        </a>
-                    </li>
-                    <li>
-                        <a class="subnav-text" href="javascript:changeCanvasMode('4');">
-                        Mug
-                        </a>
-                    </li>
-                    <li>
-                        <a class="subnav-text" href="javascript:changeCanvasMode('5');">
-                        Wedding card
-                        </a>
-                    </li>
-                    <li>
-                        <a class="subnav-text" href="javascript:changeCanvasMode('6');">
-                        Wedding card two pages
-                        </a>
-                    </li>
-                </ul>
-			</li>
-			<li class="has-subnav">
-				<a href="javascript:;">
-				<i class="icon-font nav-icon" aria-hidden="true"></i>
-				<span class="nav-text">
-					Font
-				</span>
-				<i class="icon-angle-right"></i><i class="icon-angle-down"></i>
-				</a>
-				<ul>
-					<li>
-                        <form>                            
-                            <input type="text" class="form-control" placeholder="Search">                            
-                        </form>
-					</li>
-					<li>
-					<a class="subnav-text" href="grids.html">
-					Grids
-					</a>
-					</li>
-				</ul>
-			</li>
-			<li class="has-subnav">
-				<a href="javascript:;">
-				<i class="fa fa-check-square-o nav_icon"></i>
-				<span class="nav-text">
-				Forms
-				</span>
-				<i class="icon-angle-right"></i><i class="icon-angle-down"></i>
-				</a>
-				<ul>
-					<li>
-						<a class="subnav-text" href="inputs.html">Inputs</a>
-					</li>
-					<li>
-						<a class="subnav-text" href="validation.html">Form Validation</a>
-					</li>
-				</ul>
-			</li>
-			<li class="has-subnav">
-				<a href="javascript:;">
-					<i class="fa fa-file-text-o nav_icon"></i>
-						<span class="nav-text">Pages</span>
-					<i class="icon-angle-right"></i><i class="icon-angle-down"></i>
-				</a>
-				<ul>
-					<li>
-						<a class="subnav-text" href="gallery.html">
-							Image Gallery
-						</a>
-					</li>
-					<li>
-						<a class="subnav-text" href="calendar.html">
-							Calendar
-						</a>
-					</li>
-					<li>
-						<a class="subnav-text" href="signup.html">
-							Sign Up Page
-						</a>
-					</li>
-					<li>
-						<a class="subnav-text" href="login.html">
-							Login Page
-						</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<a href="charts.html">
-					<i class="fa fa-bar-chart nav_icon"></i>
-					<span class="nav-text">
-						Charts
-					</span>
-				</a>
-			</li>
-			<li>
-				<a href="typography.html">
-					<i class="icon-font nav-icon"></i>
-					<span class="nav-text">
-					Typography
-					</span>
-				</a>
-			</li>
-			<li>
-				<a href="tables.html">
-					<i class="icon-table nav-icon"></i>
-					<span class="nav-text">
-					Tables
-					</span>
-				</a>
-			</li>
-			<li>
-				<a href="maps.html">
-					<i class="fa fa-map-marker" aria-hidden="true"></i>
-					<span class="nav-text">
-					Maps
-					</span>
-				</a>
-			</li>
-			<li>
-				<a href="error.html">
-					<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-					<span class="nav-text">
-					Error Page
-					</span>
-				</a>
-			</li>
-			<li class="has-subnav">
-				<a href="javascript:;">
-					<i class="fa fa-list-ul" aria-hidden="true"></i>
-					<span class="nav-text">Extras</span>
-					<i class="icon-angle-right"></i><i class="icon-angle-down"></i>
-				</a>
-				<ul>
-					<li>
-						<a class="subnav-text" href="faq.html">FAQ</a>
-					</li>
-					<li>
-						<a class="subnav-text" href="blank.html">Blank Page</a>
-					</li>
-				</ul>
-			</li>
-		</ul>
-		<ul class="logout">
-			<li>
-			<a href="login.html">
-			<i class="icon-off nav-icon"></i>
-			<span class="nav-text">
-			Logout
-			</span>
-			</a>
-			</li>
-		</ul>
-    </nav>
-	<section class="wrapper scrollable">
-		<div class="main-grid">			
-			<div class="agile-grids">				
-				<div class="col-md-8 chart-left">
-					<!-- updating-data -->
-					<div class="agile-Updating-grids">
-						<div class="area-grids-heading">
-							<h3>Canvas</h3>
-						</div>
-						<div >
-                            <!--Place canvas here.-->
-                                <canvas id="customCanvas" width="600" height="600" style="border:1px solid #977c7c;">
-                                    Your browser does not support  the HTML5
-                                </canvas>
-                                <button id="zoomIn">+</button>
-                                <button id="zoomOut">-</button>
-                                <input type="checkbox" id="panMode" onchange="togglePanMode()">Panning Mode</button>
-                                <input type="checkbox" id='flip' onchange="flip()">Flip</button>
-                        </div>						
-					</div>
-					
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-			
-			<div class="clearfix"> </div>
-			
-		</div>
-		<!-- footer -->
-		<div class="footer">
-			<p>© 2016 Colored . All Rights Reserved . Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-		</div>
-		<!-- //footer -->
-    </section>
-    <script src= "js/FabricCanvas.js"> </script>
-    <script src= "js/global.js"> </script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/proton.js"></script>
+
+<body style="overflow-x: hidden;" >
+
+<div class="row">
+
+    <!-- sideNav of the customizer starts here -->
+<div class="col-md-4 sidenav">
+    <div class="row">
+<div class="tab col-lg-2 col-md-2" style="padding: 0%; text-align: center;">
+  <div class="customNav tablinks" onclick="openNav(event, 'Layouts')" id="defaultOpen"><i class="fa fa-th-large" style="font-size: 20px;" aria-hidden="true"></i><br>
+  LAYOUTS</div>
+  <div class="customNav tablinks" onclick="openNav(event, 'Elements')"><i class="fa fa-object-group" style="font-size: 20px;" aria-hidden="true"></i><br>
+  SHAPES</div>
+  <div class="customNav tablinks" onclick="openNav(event, 'TextList')"><i class="fa fa-text-height" style="font-size: 20px;" aria-hidden="true"></i><br>
+  TEXT</div>
+  <div class="customNav tablinks" onclick="openNav(event, 'Uploads')"><i class="fa fa-arrow-up" style="font-size: 20px;" aria-hidden="true"></i><br>
+  UPLOADS</div>
+</div>
+  <div class="col-lg-10 col-md-10 sideContent">
+        <div id="Layouts" class="tabcontent">
+                <div class="row">
+                    <div class="col-md-6">
+                    <figure class="curlimg">
+                        <img src="https://media-public.canva.com/MAB9YSwsTOc/5/0/thumbnail_large.jpg" alt="sample26"/>
+                        <div>		
+                            <i class="ion-ios-play-outline"></i>	
+                            <div class="curl"></div>
+                            <a href="#"></a>
+                        </div>				
+                    </figure></div>
+                    <div class="col-md-6">
+                    <figure class="curlimg">
+                        <img src="https://media-public.canva.com/MACCCqwT91A/4/0/thumbnail_large.jpg" alt="sample28"/>
+                        <div>			
+                            <i class="ion-ios-arrow-thin-right"></i>
+                            <div class="curl"></div>
+                            <a href="#"></a>
+                        </div>			
+                    </figure></div>
+                    <div class="col-md-6">
+                    <figure class="curlimg">
+                        <img src="https://media-public.canva.com/MACCsoRsiu8/5/0/thumbnail_large.jpg" alt="sample28"/>
+                        <div>			
+                            <i class="ion-ios-arrow-thin-right"></i>
+                            <div class="curl"></div>
+                            <a href="#"></a>
+                        </div>			
+                    </figure></div>
+                    <div class="col-md-6">
+                    <figure class="curlimg">
+                        <img src="https://media-public.canva.com/MACCnp27VpA/4/0/thumbnail_large.jpg" alt="sample28"/>
+                        <div>			
+                            <i class="ion-ios-arrow-thin-right"></i>
+                            <div class="curl"></div>
+                            <a href="#"></a>
+                        </div>			
+                    </figure></div>
+                    <div class="col-md-6">
+                    <figure class="curlimg">
+                        <img src="https://media-public.canva.com/MAB9XkHejdg/4/0/thumbnail_large.jpg" alt="sample28"/>
+                        <div>			
+                            <i class="ion-ios-arrow-thin-right"></i>
+                            <div class="curl"></div>
+                            <a href="#"></a>
+                        </div>			
+                    </figure></div>
+                    <div class="col-md-6">
+                    <figure class="curlimg">
+                        <img src="https://media-public.canva.com/MACB4XnNCsQ/4/0/thumbnail_large.jpg" alt="sample28"/>
+                        <div>			
+                            <i class="ion-ios-arrow-thin-right"></i>
+                            <div class="curl"></div>
+                            <a href="#"></a>
+                        </div>			
+                    </figure></div>
+                    <div class="col-md-6">
+                    <figure class="curlimg">
+                        <img src="https://media-public.canva.com/MACEAVMv7c0/5/0/thumbnail_large.jpg" alt="sample28"/>
+                        <div>			
+                            <i class="ion-ios-arrow-thin-right"></i>
+                            <div class="curl"></div>
+                            <a href="#"></a>
+                        </div>			
+                    </figure></div>
+                    <div class="col-md-6">
+                    <figure class="curlimg">
+                        <img src="https://media-public.canva.com/MACCifGxZG8/5/0/thumbnail_large.jpg" alt="sample28"/>
+                        <div>			
+                            <i class="ion-ios-arrow-thin-right"></i>
+                            <div class="curl"></div>
+                            <a href="#"></a>
+                        </div>			
+                    </figure></div>
+                    <div class="col-md-6">
+                    <figure class="curlimg">
+                        <img src="https://media-public.canva.com/MACCiCiMrVk/4/0/thumbnail_large.jpg" alt="sample28"/>
+                        <div>			
+                            <i class="ion-ios-arrow-thin-right"></i>
+                            <div class="curl"></div>
+                            <a href="#"></a>
+                        </div>			
+                    </figure></div>
+                    <div class="col-md-6">
+                    <figure class="curlimg">
+                        <img src="https://media-public.canva.com/MACCt7WCpEc/5/0/thumbnail_large.jpg" alt="sample28"/>
+                        <div>			
+                            <i class="ion-ios-arrow-thin-right"></i>
+                            <div class="curl"></div>
+                            <a href="#"></a>
+                        </div>			
+                    </figure></div>
+                    </div>
+              </div>
+    <div id="Elements" class="tabcontent">
+                <div class="row">
+                    <div class="col-md-4">
+                    <img class="elemimgs" src="images/square.png" onclick="drawShape('rectangle','#000000')">
+                </div>
+                <div class="col-md-4">
+                        <img class="elemimgs" src="images/circle.png" onclick="drawShape('circle','#000000')">
+                    </div>
+                <div class="col-md-4">
+                    <img class="elemimgs" src="images/triangle.png" onclick="drawShape('triangle','#000000')">
+                </div>
+                <div class="col-md-4">
+                    <img class="elemimgs" src="images/oval.png" onclick="drawShape('ellipse','#000000')">
+                </div>            
+            </div>
+</div>
+<div id="TextList" class="tabcontent">
+    <div class="row">
+        <div class="col-md-6">
+        <img class="textimgs" src="https://media-public.canva.com/MACPFsdhcKo/1/0/thumbnail_large.png" onclick="AddText('Add your text here')">
+        </div>
+        <div class="col-md-6">
+                <img class="textimgs" src="https://media-public.canva.com/MACSWm7iGNk/1/0/thumbnail_large.png">
+        </div>
+        <div class="col-md-6">
+            <img class="textimgs" src="https://media-public.canva.com/MACSWC6aBds/1/0/thumbnail_large.png">
+        </div>
+        <div class="col-md-6">
+            <img class="textimgs" src="https://media-public.canva.com/MACSWakkcmU/1/0/thumbnail_large.png">
+        </div>
+        <div class="col-md-6">
+            <img class="textimgs" src="https://media-public.canva.com/MACSWHSnHPQ/1/0/thumbnail_large.png">
+        </div>
+        <div class="col-md-6">
+            <img class="textimgs" src="https://media-public.canva.com/MACSWXGlLEY/1/0/thumbnail_large.png">
+        </div>
+    </div>
+</div>
+<div id="Uploads" class="tabcontent text-center">
+        <input type="file" id = "file" accept="image/*"  class="upldbtn"/>
+        <div class = 'row' id='imageCarousel'>
+
+        </div>
+</div>
+  </div>
+  </div>
+</div>
+
+<!-- sideNav of the customizer ends here -->
+
+
+<!-- the product section starts here -->
+
+<div class="col-md-8 main" >
+    <div class="row" style="padding: 20px;">
+        <div class="col-md-8" style="float: left;">
+            <select class="slctbtn" id = "fontFamily" onchange="editFontFamily()">
+                    <option value="times new roman">Times New Roman</option>
+                    <option value="arial black">Arial Black</option>
+                    <option value="calibri">Calibri</option>
+                  </select>
+                  <select class="slctbtn" id = "fontSize" onchange="changeFontSize()">
+                        <option value="18">18</option>
+                        <option value="20">20</option>
+                        <option value="22">22</option>
+                        <option value="24">24</option>                        
+                        <option value="28">28</option>
+                        <option value="36">36</option>                        
+                        <option value="48">48</option>
+                        <option value="60">60</option>
+                      </select>
+            <input style="background-image: url(images/color_picker_spectrum_square.png);" type="color" id = "textColor" value="#ff0000" class="colorbtn" onchange="colorChange()">
+            <button style="background-image: url(images/bold.png);" class="colorbtn" onclick = "bold()"></button>
+            <button style="background-image: url(images/italic.png);" class="colorbtn" onclick = "italics()"></button>
+            <button style="background-image: url(images/under.png);" class="colorbtn" onclick = "underline()"></button>
+            <button style="background-image: url(images/strike.png);" class="colorbtn" onclick = "strikeThrough()"></button>
+            </div>
+            <div class="col-md-4" style="float: right;">
+            <button style="background-image: url(images/flip.png);" class="colorbtn" onclick="flip()"></button>
+            <button style="background-image: url(images/back.png);" class="colorbtn" onclick="sendToBack()"></button>
+            <button style="background-image: url(images/front.png);" class="colorbtn" onclick="bringForward()"></button>
+            <button style="background-image: url(images/bin.png);" class="colorbtn" onclick="del()"></button>
+            </div>
+    </div>
+    <!-- section to be deleted -->
+    <center>
+        <div id="canvasWrapper" >
+            <canvas id="customCanvas"></canvas>
+        </div>
+    </center>
+    <!-- section to be deleted -->
+    <div class="row" style="padding: 20px; justify-content: center;">
+        <button style="background-image: url(images/min.png);" class="colorbtn" id="zoomOut"></button>
+        <button style="background-image: url(images/plus.png);" class="colorbtn" id="zoomIn"></button>
+    </div>
+</div>
+<!-- the product section starts here -->
+
+
+</div>
+
+<script>
+function openNav(evt, navName) {     // function used for sidenav toggle
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active-side", "");
+    }
+
+    // Show the current tab, and add an "active" class to the link that opened the tab
+    document.getElementById(navName).style.display = "block";
+    evt.currentTarget.className += " active-side";
+}
+
+document.getElementById("defaultOpen").click();   //for having a default option selected on page load
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+<script src= "js/FabricCanvas.js"> </script>
+<script src= "js/global.js"> </script>
+  
 </body>
-</html>
+</html> 
